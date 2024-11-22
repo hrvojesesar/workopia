@@ -65,7 +65,7 @@ class Router
 
     /**
      * Load error page
-     *@param int $httpCode 
+     * @param int $httpCode 
      * @return void
      */
     public function error($httpCode = 404)
