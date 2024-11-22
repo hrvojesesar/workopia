@@ -98,6 +98,6 @@ class Router
             }
         }
 
-        $this->error(403);
+        $this->error();
     }
 }
