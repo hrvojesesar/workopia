@@ -1,0 +1,16 @@
+{
+  "name": "hrvojesesar/workopia",
+  "description": "Job listing application",
+  "authors": [
+    {
+      "name": "Hrvoje Sesar",
+      "email": "hrvojesesar28@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "Framework/",
+      "App\\": "App/"
+    }
+  }
+}
