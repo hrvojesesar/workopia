@@ -9,6 +9,7 @@
         <p class="text-center text-2xl mb-4">
             <?= $message ?>
         </p>
+        <a href="/listings">Go back to listings</a>
     </div>
 </section>
 
