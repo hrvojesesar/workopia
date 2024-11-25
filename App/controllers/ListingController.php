@@ -17,19 +17,31 @@ class ListingController
         $this->db = new Database($config);
     }
 
-
+    /**
+     * Show all listings
+     * @return void
+     */
     public function index()
     {
         $listings = $this->db->query("SELECT * FROM listings LIMIT 6")->fetchAll(PDO::FETCH_OBJ);
         loadView('listings/index', ['listings' => $listings]);
     }
 
-
+    /**
+     * Show the form to create a new listing
+     * 
+     * @return void
+     */
     public function create()
     {
         loadView('listings/create');
     }
 
+    /**
+     * Show a single listing
+     * @param array $params
+     * @return void
+     */
     public function show($params)
     {
         $id = $params['id'] ?? '';
@@ -132,5 +144,31 @@ class ListingController
 
             redirect('/listings');
         }
+    }
+
+    /**
+     * Delete a listing
+     * 
+     * @param array $params
+     * @return void
+     */
+    public function destroy($params)
+    {
+        $id = $params['id'] ?? '';
+
+        $params = [
+            'id' => $id
+        ];
+
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+
+        if (!$listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+
+        $this->db->query('DELETE FROM listings WHERE id = :id', $params);
+
+        redirect('/listings');
     }
 }
