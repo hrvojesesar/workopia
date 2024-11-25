@@ -91,3 +91,15 @@ function formatSalary($salary)
 {
     return '$' . number_format($salary, 2);
 }
+
+
+/**
+ * Sanitize Data
+ * 
+ * @param string $data
+ * @return string
+ */
+function sanitize($dirty)
+{
+    return filter_var($dirty, FILTER_SANITIZE_SPECIAL_CHARS);
+}
