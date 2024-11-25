@@ -1,18 +1,9 @@
 <?php
+session_start();
 require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
 
 use Framework\Router;
-
-// require basePath('Framework/Router.php');
-// require basePath('Framework/Database.php');
-
-// spl_autoload_register(function ($class) {
-//     $path = require basePath("Framework/{$class}.php");
-//     if (file_exists($path)) {
-//         require $path;
-//     }
-// });
 
 
 $router = new Router();
